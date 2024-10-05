@@ -25,7 +25,7 @@ const productSchema =new mongoose.Schema({
     },
     images:[
         {
-            filename:{
+            image:{
                 type:String,
                 required:true
             }
@@ -38,17 +38,55 @@ const productSchema =new mongoose.Schema({
             values:[
                 'Electronics',
                 'Mobile Phones',
-                'Accesories',
-                'HeadPhones',
+                'Accessories',
+                'Headphones',
                 'Food',
                 'Books',
                 'Clothes/Shoes',
                 'Beauty/Health',
                 'Sports',
                 'Outdoor',
+                'Laptops',
                 'Home'
             ],
             messsage:"Please select correct category"
         }
+    },
+    seller:{
+        type:String,
+        required:[true,"please enter product seller"]
+    },
+    stock:{
+        type:Number,
+        required:[true,"Please enter product stock"],
+        maxLength:[20,'Product stock cannot exceed 20']
+    },
+    numOfreviews:{
+        type:Number,
+        default: 0
+    },
+    reviews:[
+        {
+            name:{
+                type: String,
+                required: true
+            },
+            rating:{
+                type: String,
+                required: true
+            },
+            comment:{
+                type: String,
+                required: true
+            }
+        }
+    ],
+    createdAt:{
+        type:Date,
+        default:Date.now()
     }
 })
+
+let schema = mongoose.model('Product',productSchema)
+
+module.exports = schema
