@@ -5,8 +5,9 @@ const connectDatabase = require('./config/database')
 
 dotenv.config({path:path.join(__dirname,'config/.env')})
 connectDatabase()
-const server = app.listen(process.env.PORT,()=>{
-    console.log(`server runnning in port :${process.env.PORT} in ${process.env.NODE_ENV}`)
+const PORT = process.env.PORT || 8000;
+const server = app.listen(PORT,()=>{
+    console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV} mode.`)
 })
 
 process.on('unhandledRejection',(err)=>{
