@@ -22,7 +22,7 @@ export default function Home() {
                 position: toast.POSITION.BOTTOM_CENTER
             })
         }
-        dispatch(getProducts(null,currentPage))
+        dispatch(getProducts(currentPage))
     }, [error, dispatch, currentPage])
 
     return (

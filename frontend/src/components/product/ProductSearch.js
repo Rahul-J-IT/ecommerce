@@ -49,7 +49,7 @@ export  default function ProductSearch(){
                 position: toast.POSITION.BOTTOM_CENTER
             })
         }
-        dispatch(getProducts(keyword, priceChanged, category, rating, currentPage)) 
+        dispatch(getProducts(keyword, price, currentPage)) 
     }, [error, dispatch, currentPage, keyword, priceChanged, category, rating])
 
 
